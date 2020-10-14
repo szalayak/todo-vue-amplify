@@ -33,6 +33,12 @@ export default function() {
         deadline: "29/7/2018",
         done: true,
       },
+      {
+        text: "Have some fun",
+        id: "i6",
+        deadline: "29/7/2018",
+        done: true,
+      }
     ],
     todoBeingEdittedText: "",
     todoBeingEdittedDate: "",
