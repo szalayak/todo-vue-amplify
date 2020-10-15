@@ -1,12 +1,18 @@
 <template>
   <tr>
-    <td>{{ item.text }}</td>
+    <td>
+      <v-checkbox
+        v-model="item.done"
+        :label="item.text"
+        @click="toggleCompleted(item)"
+      />
+    </td>
     <td>{{ item.deadline }}</td>
     <td>
-      <v-btn class="ms-2" @click="click">
+      <v-btn class="ms-2" @click="editItem(item)">
         <v-icon>mdi-pencil</v-icon>
       </v-btn>
-      <v-btn color="error" class="ms-2">
+      <v-btn color="error" class="ms-2" @click="deleteItem(item)">
         <v-icon>mdi-delete</v-icon>
       </v-btn>
     </td>
@@ -18,8 +24,14 @@ export default {
   name: "todo-item",
   props: ["item"],
   methods: {
-    click: () => {
-      alert("clicked");
+    editItem(item) {
+      this.$emit("edited", item);
+    },
+    deleteItem(item) {
+      this.$emit("deleted", item);
+    },
+    toggleCompleted(item) {
+      this.$emit(item.done ? "completed" : "uncompleted", item);
     }
   }
 };

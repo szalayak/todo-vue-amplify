@@ -19,7 +19,15 @@
           </tr>
         </thead>
         <tbody>
-          <todo-item v-for="item in items" :item="item" :key="item.id" />
+          <todo-item
+            v-for="item in items"
+            :item="item"
+            :key="item.id"
+            @edited="onItemEdited"
+            @deleted="onItemDeleted"
+            @completed="onItemCompleted"
+            @uncompleted="onItemUncompleted"
+          />
         </tbody>
       </template>
     </v-simple-table>
@@ -31,6 +39,20 @@ import TodoItem from "./TodoItem";
 export default {
   name: "todo-list",
   props: ["items", "title"],
-  components: { "todo-item": TodoItem }
+  components: { "todo-item": TodoItem },
+  methods: {
+    onItemEdited(item){
+      alert(item.text);
+    },
+    onItemDeleted(item){
+      this.$emit("item-deleted", item);
+    },
+    onItemUncompleted(item){
+      this.$emit("item-uncompleted", item);
+    },
+    onItemCompleted(item){
+      this.$emit("item-completed", item);
+    }
+  }
 };
 </script>
