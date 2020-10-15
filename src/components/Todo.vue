@@ -12,7 +12,7 @@ export default {
   name: "todo",
   data,
   components: {
-    "todo-list": TodoList,
-  },
+    "todo-list": TodoList
+  }
 };
 </script>
