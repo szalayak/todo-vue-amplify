@@ -1,38 +1,52 @@
 <template>
   <tr>
+    <todo-dialog
+      :open="dialog"
+      :item="item"
+      title="Edit Item"
+      @closed="onEditingCancelled"
+    />
     <td>
       <v-checkbox
         v-model="item.done"
         :label="item.text"
-        @click="toggleCompleted(item)"
+        @click="toggle(item)"
       />
     </td>
     <td>{{ item.deadline }}</td>
     <td>
-      <v-btn class="ms-2" @click="editItem(item)">
-        <v-icon>mdi-pencil</v-icon>
-      </v-btn>
-      <v-btn color="error" class="ms-2" @click="deleteItem(item)">
-        <v-icon>mdi-delete</v-icon>
-      </v-btn>
+      <v-icon small @click="editItem(item)" class="mr-2">mdi-pencil</v-icon>
+      <v-icon small @click="deleteItem(item)" class="mr-2">mdi-delete</v-icon>
     </td>
   </tr>
 </template>
 
 <script>
+import TodoDialog from "./TodoDialog";
 export default {
   name: "todo-item",
   props: ["item"],
+  components: {
+    "todo-dialog": TodoDialog,
+  },
+  data: () => {
+    return {
+      dialog: false,
+    };
+  },
   methods: {
-    editItem(item) {
-      this.$emit("edited", item);
+    editItem() {
+      this.dialog = true;
     },
     deleteItem(item) {
       this.$emit("deleted", item);
     },
-    toggleCompleted(item) {
+    toggle(item) {
       this.$emit(item.done ? "completed" : "uncompleted", item);
-    }
-  }
+    },
+    onEditingCancelled() {
+      this.dialog = false;
+    },
+  },
 };
 </script>

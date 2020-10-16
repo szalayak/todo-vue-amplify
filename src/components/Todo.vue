@@ -2,13 +2,13 @@
   <div>
     <todo-list
       :items="todos"
-      title="Todos"
+      title="Open"
       @item-deleted="onTodoDeleted"
       @item-completed="onTodoCompleted"
     />
     <todo-list
       :items="doneTodos"
-      title="Completed Todos"
+      title="Completed"
       @item-deleted="onTodoDeleted"
       @item-uncompleted="onTodoUncompleted"
     />

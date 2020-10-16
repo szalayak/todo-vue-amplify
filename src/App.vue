@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app color="white" light>
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
@@ -10,7 +10,7 @@
           transition="scale-transition"
           width="40"
         />
-
+        <div class="text-h4">Todos</div>
         <v-img
           alt="Vuetify Name"
           class="shrink mt-1 hidden-sm-and-down"
