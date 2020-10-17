@@ -116,6 +116,7 @@ export type CreateTodoMutation = {
     done: boolean | null,
     createdAt: string,
     updatedAt: string,
+    owner: string | null,
   } | null,
 };
 
@@ -133,6 +134,7 @@ export type UpdateTodoMutation = {
     done: boolean | null,
     createdAt: string,
     updatedAt: string,
+    owner: string | null,
   } | null,
 };
 
@@ -150,6 +152,7 @@ export type DeleteTodoMutation = {
     done: boolean | null,
     createdAt: string,
     updatedAt: string,
+    owner: string | null,
   } | null,
 };
 
@@ -166,6 +169,7 @@ export type GetTodoQuery = {
     done: boolean | null,
     createdAt: string,
     updatedAt: string,
+    owner: string | null,
   } | null,
 };
 
@@ -186,9 +190,14 @@ export type ListTodosQuery = {
       done: boolean | null,
       createdAt: string,
       updatedAt: string,
+      owner: string | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
+};
+
+export type OnCreateTodoSubscriptionVariables = {
+  owner: string,
 };
 
 export type OnCreateTodoSubscription = {
@@ -200,7 +209,12 @@ export type OnCreateTodoSubscription = {
     done: boolean | null,
     createdAt: string,
     updatedAt: string,
+    owner: string | null,
   } | null,
+};
+
+export type OnUpdateTodoSubscriptionVariables = {
+  owner: string,
 };
 
 export type OnUpdateTodoSubscription = {
@@ -212,7 +226,12 @@ export type OnUpdateTodoSubscription = {
     done: boolean | null,
     createdAt: string,
     updatedAt: string,
+    owner: string | null,
   } | null,
+};
+
+export type OnDeleteTodoSubscriptionVariables = {
+  owner: string,
 };
 
 export type OnDeleteTodoSubscription = {
@@ -224,5 +243,6 @@ export type OnDeleteTodoSubscription = {
     done: boolean | null,
     createdAt: string,
     updatedAt: string,
+    owner: string | null,
   } | null,
 };
