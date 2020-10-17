@@ -27,6 +27,7 @@
             @deleted="onItemDeleted"
             @completed="onItemCompleted"
             @uncompleted="onItemUncompleted"
+            @changed="onItemChanged"
           />
         </tbody>
       </template>
@@ -53,6 +54,9 @@ export default {
     onItemCompleted(item) {
       this.$emit("item-completed", item);
     },
-  },
+    onItemChanged(item, changedAttributes) {
+      this.$emit("item-changed", item, changedAttributes);
+    }
+  }
 };
 </script>

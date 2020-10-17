@@ -1,47 +1,47 @@
+import moment from "moment";
+export const DATE_FORMAT = "DD/MM/YYYY";
+export const DATE_ISO_FORMAT = "YYYY-MM-DD";
 export default function() {
   return {
     todos: [
       {
         text: "Get some carrots",
-        id: "i1",
-        deadline: "27/7/2018",
+        id: 1,
+        deadline: moment("27/7/2018", DATE_FORMAT).toDate(),
         done: false
       },
       {
         text: "Do some magic",
-        id: "i2",
-        deadline: "22/7/2018",
+        id: 2,
+        deadline: moment("22/7/2018", DATE_FORMAT).toDate(),
         done: false
       },
       {
         text: "Go to the gym",
-        id: "i3",
-        deadline: "24/7/2018",
+        id: 3,
+        deadline: moment("24/7/2018", DATE_FORMAT).toDate(),
         done: false
       },
       {
         text: "Buy milk",
-        id: "i4",
-        deadline: "30/7/2018",
+        id: 4,
+        deadline: moment("30/7/2018", DATE_FORMAT).toDate(),
         done: false
       }
     ],
     doneTodos: [
       {
         text: "Eat some fruits",
-        id: "i5",
-        deadline: "29/7/2018",
+        id: 5,
+        deadline: moment("29/7/2018", DATE_FORMAT).toDate(),
         done: true
       },
       {
         text: "Have some fun",
-        id: "i6",
-        deadline: "29/7/2018",
+        id: 6,
+        deadline: moment("29/7/2018", DATE_FORMAT).toDate(),
         done: true
       }
-    ],
-    todoBeingEdittedText: "",
-    todoBeingEdittedDate: "",
-    selectedEditTodo: ""
+    ]
   };
 }

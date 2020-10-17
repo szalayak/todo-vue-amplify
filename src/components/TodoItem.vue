@@ -5,6 +5,7 @@
       :item="item"
       title="Edit Item"
       @closed="onEditingCancelled"
+      @saved="onItemChanged"
     />
     <td>
       <v-checkbox
@@ -13,7 +14,7 @@
         @click="toggle(item)"
       />
     </td>
-    <td>{{ item.deadline }}</td>
+    <td>{{ formattedDeadline }}</td>
     <td>
       <v-icon small @click="editItem(item)" class="mr-2">mdi-pencil</v-icon>
       <v-icon small @click="deleteItem(item)" class="mr-2">mdi-delete</v-icon>
@@ -23,16 +24,23 @@
 
 <script>
 import TodoDialog from "./TodoDialog";
+import { DATE_FORMAT } from "../data";
+import moment from "moment";
 export default {
   name: "todo-item",
   props: ["item"],
   components: {
-    "todo-dialog": TodoDialog,
+    "todo-dialog": TodoDialog
   },
   data: () => {
     return {
-      dialog: false,
+      dialog: false
     };
+  },
+  computed: {
+    formattedDeadline() {
+      return moment(this.item.deadline).format(DATE_FORMAT);
+    }
   },
   methods: {
     editItem() {
@@ -47,6 +55,10 @@ export default {
     onEditingCancelled() {
       this.dialog = false;
     },
-  },
+    onItemChanged(changedAttributes) {
+      this.dialog = false;
+      this.$emit("changed", this.item, changedAttributes);
+    }
+  }
 };
 </script>
