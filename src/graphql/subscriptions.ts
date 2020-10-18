@@ -3,8 +3,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateTodo = /* GraphQL */ `
-  subscription OnCreateTodo($owner: String) {
-    onCreateTodo(owner: $owner) {
+  subscription OnCreateTodo {
+    onCreateTodo {
       id
       text
       deadline
@@ -16,8 +16,8 @@ export const onCreateTodo = /* GraphQL */ `
   }
 `;
 export const onUpdateTodo = /* GraphQL */ `
-  subscription OnUpdateTodo($owner: String) {
-    onUpdateTodo(owner: $owner) {
+  subscription OnUpdateTodo {
+    onUpdateTodo {
       id
       text
       deadline
@@ -29,8 +29,8 @@ export const onUpdateTodo = /* GraphQL */ `
   }
 `;
 export const onDeleteTodo = /* GraphQL */ `
-  subscription OnDeleteTodo($owner: String) {
-    onDeleteTodo(owner: $owner) {
+  subscription OnDeleteTodo {
+    onDeleteTodo {
       id
       text
       deadline

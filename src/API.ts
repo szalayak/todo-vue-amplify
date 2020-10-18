@@ -199,10 +199,6 @@ export type ListTodosQuery = {
   } | null,
 };
 
-export type OnCreateTodoSubscriptionVariables = {
-  owner?: string | null,
-};
-
 export type OnCreateTodoSubscription = {
   onCreateTodo:  {
     __typename: "Todo",
@@ -216,10 +212,6 @@ export type OnCreateTodoSubscription = {
   } | null,
 };
 
-export type OnUpdateTodoSubscriptionVariables = {
-  owner?: string | null,
-};
-
 export type OnUpdateTodoSubscription = {
   onUpdateTodo:  {
     __typename: "Todo",
@@ -231,10 +223,6 @@ export type OnUpdateTodoSubscription = {
     createdAt: string,
     updatedAt: string,
   } | null,
-};
-
-export type OnDeleteTodoSubscriptionVariables = {
-  owner?: string | null,
 };
 
 export type OnDeleteTodoSubscription = {
