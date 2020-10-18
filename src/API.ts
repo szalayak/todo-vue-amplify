@@ -8,6 +8,7 @@ export type CreateTodoInput = {
   deadline?: string | null,
   done?: boolean | null,
   owner?: string | null,
+  editors?: Array< string | null > | null,
 };
 
 export type ModelTodoConditionInput = {
@@ -72,6 +73,7 @@ export type UpdateTodoInput = {
   deadline?: string | null,
   done?: boolean | null,
   owner?: string | null,
+  editors?: Array< string | null > | null,
 };
 
 export type DeleteTodoInput = {
@@ -84,6 +86,7 @@ export type ModelTodoFilterInput = {
   deadline?: ModelStringInput | null,
   done?: ModelBooleanInput | null,
   owner?: ModelStringInput | null,
+  editors?: ModelStringInput | null,
   and?: Array< ModelTodoFilterInput | null > | null,
   or?: Array< ModelTodoFilterInput | null > | null,
   not?: ModelTodoFilterInput | null,
@@ -118,6 +121,7 @@ export type CreateTodoMutation = {
     deadline: string | null,
     done: boolean | null,
     owner: string | null,
+    editors: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -136,6 +140,7 @@ export type UpdateTodoMutation = {
     deadline: string | null,
     done: boolean | null,
     owner: string | null,
+    editors: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -154,6 +159,7 @@ export type DeleteTodoMutation = {
     deadline: string | null,
     done: boolean | null,
     owner: string | null,
+    editors: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -171,6 +177,7 @@ export type GetTodoQuery = {
     deadline: string | null,
     done: boolean | null,
     owner: string | null,
+    editors: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -192,11 +199,17 @@ export type ListTodosQuery = {
       deadline: string | null,
       done: boolean | null,
       owner: string | null,
+      editors: Array< string | null > | null,
       createdAt: string,
       updatedAt: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
+};
+
+export type OnCreateTodoSubscriptionVariables = {
+  owner?: string | null,
+  editors?: string | null,
 };
 
 export type OnCreateTodoSubscription = {
@@ -207,9 +220,15 @@ export type OnCreateTodoSubscription = {
     deadline: string | null,
     done: boolean | null,
     owner: string | null,
+    editors: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,
+};
+
+export type OnUpdateTodoSubscriptionVariables = {
+  owner?: string | null,
+  editors?: string | null,
 };
 
 export type OnUpdateTodoSubscription = {
@@ -220,9 +239,15 @@ export type OnUpdateTodoSubscription = {
     deadline: string | null,
     done: boolean | null,
     owner: string | null,
+    editors: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,
+};
+
+export type OnDeleteTodoSubscriptionVariables = {
+  owner?: string | null,
+  editors?: string | null,
 };
 
 export type OnDeleteTodoSubscription = {
@@ -233,6 +258,7 @@ export type OnDeleteTodoSubscription = {
     deadline: string | null,
     done: boolean | null,
     owner: string | null,
+    editors: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,

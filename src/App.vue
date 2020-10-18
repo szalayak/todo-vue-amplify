@@ -15,9 +15,9 @@
       <v-spacer></v-spacer>
       <v-menu v-if="user">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn v-bind="attrs" v-on="on">
+          <v-btn text v-bind="attrs" v-on="on">
             {{ user.username }}
-            <v-icon>mdi-dots-vertical</v-icon>
+            <v-icon>mdi-account</v-icon>
           </v-btn>
         </template>
         <v-list>
@@ -69,9 +69,7 @@ export default Vue.extend({
     return appData;
   },
   created() {
-    console.log(this.authState, this.user);
     onAuthUIStateChange((authState, authData) => {
-      console.log(authData, authState);
       this.authState = authState;
       this.user = authData;
     });

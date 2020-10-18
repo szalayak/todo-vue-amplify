@@ -10,6 +10,7 @@ export const getTodo = /* GraphQL */ `
       deadline
       done
       owner
+      editors
       createdAt
       updatedAt
     }
@@ -28,6 +29,7 @@ export const listTodos = /* GraphQL */ `
         deadline
         done
         owner
+        editors
         createdAt
         updatedAt
       }
