@@ -15,7 +15,7 @@
       <v-spacer></v-spacer>
       <v-menu v-if="user">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn dark v-bind="attrs" v-on="on">
+          <v-btn v-bind="attrs" v-on="on">
             {{ user.username }}
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
