@@ -15,9 +15,9 @@
       <v-spacer></v-spacer>
       <v-menu v-if="user">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn dark v-bind="attrs" v-on="on">
+          <v-btn text v-bind="attrs" v-on="on">
             {{ user.username }}
-            <v-icon>mdi-dots-vertical</v-icon>
+            <v-icon>mdi-account</v-icon>
           </v-btn>
         </template>
         <v-list>
@@ -34,7 +34,9 @@
     <v-main>
       <v-container v-if="authState !== 'signedin'" fluid fill-height>
         <v-row align="center" justify="center">
-          <amplify-authenticator></amplify-authenticator>
+          <amplify-authenticator
+            ><amplify-sign-in slot="sign-in" hide-sign-up
+          /></amplify-authenticator>
         </v-row>
       </v-container>
       <Todo v-if="authState === 'signedin' && user" />
@@ -69,9 +71,7 @@ export default Vue.extend({
     return appData;
   },
   created() {
-    console.log(this.authState, this.user);
     onAuthUIStateChange((authState, authData) => {
-      console.log(authData, authState);
       this.authState = authState;
       this.user = authData;
     });

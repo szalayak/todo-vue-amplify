@@ -13,6 +13,7 @@ export const createTodo = /* GraphQL */ `
       deadline
       done
       owner
+      editors
       createdAt
       updatedAt
     }
@@ -29,6 +30,7 @@ export const updateTodo = /* GraphQL */ `
       deadline
       done
       owner
+      editors
       createdAt
       updatedAt
     }
@@ -45,6 +47,7 @@ export const deleteTodo = /* GraphQL */ `
       deadline
       done
       owner
+      editors
       createdAt
       updatedAt
     }

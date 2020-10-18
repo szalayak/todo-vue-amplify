@@ -38,6 +38,8 @@ import TodoDialog from "./TodoDialog";
 import { API } from "aws-amplify";
 import { listTodos } from "../graphql/queries";
 import { createTodo, updateTodo, deleteTodo } from "../graphql/mutations";
+import moment from "moment";
+import { DATE_ISO_FORMAT } from "../data";
 export default {
   name: "todo",
   data: function() {
@@ -81,7 +83,12 @@ export default {
     },
     onNewItemSaved(attributes) {
       this.newDialog = false;
-      this.createTodo(attributes);
+      this.createTodo({
+        ...attributes,
+        deadline: moment(attributes.deadline || undefined).format(
+          DATE_ISO_FORMAT
+        )
+      });
     },
     onNewItem() {
       this.newItem = {};

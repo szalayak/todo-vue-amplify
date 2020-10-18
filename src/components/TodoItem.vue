@@ -24,7 +24,7 @@
 
 <script>
 import TodoDialog from "./TodoDialog";
-import { DATE_FORMAT } from "../data";
+import { DATE_FORMAT, DATE_ISO_FORMAT } from "../data";
 import moment from "moment";
 export default {
   name: "todo-item",
@@ -57,7 +57,13 @@ export default {
     },
     onItemChanged(changedAttributes) {
       this.dialog = false;
-      this.$emit("changed", this.item, changedAttributes);
+      const attributes = { ...changedAttributes };
+      if (attributes.deadline) {
+        attributes.deadline = moment(attributes.deadline).format(
+          DATE_ISO_FORMAT
+        );
+      }
+      this.$emit("changed", this.item, attributes);
     }
   }
 };
