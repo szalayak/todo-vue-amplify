@@ -34,7 +34,9 @@
     <v-main>
       <v-container v-if="authState !== 'signedin'" fluid fill-height>
         <v-row align="center" justify="center">
-          <amplify-authenticator></amplify-authenticator>
+          <amplify-authenticator
+            ><amplify-sign-in slot="sign-in" hide-sign-up
+          /></amplify-authenticator>
         </v-row>
       </v-container>
       <Todo v-if="authState === 'signedin' && user" />
