@@ -13,10 +13,23 @@
         <div class="text-h4">Todos</div>
       </div>
       <v-spacer></v-spacer>
-      <div v-if="user" class="text=h6">{{ user.username }}</div>
+      <v-menu v-if="user">
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn dark v-bind="attrs" v-on="on">
+            {{ user.username }}
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item @click="signOut">
+            <v-list-item-title>Sign Out</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+      <!-- <div v-if="user" class="text=h6">{{ user.username }}</div>
       <amplify-sign-out
         v-if="authState === 'signedin' && user"
-      ></amplify-sign-out>
+      ></amplify-sign-out> -->
     </v-app-bar>
     <v-main>
       <v-container v-if="authState !== 'signedin'" fluid fill-height>
@@ -33,6 +46,7 @@
 import Vue from "vue";
 import Todo from "./components/Todo.vue";
 import { onAuthUIStateChange, AuthState } from "@aws-amplify/ui-components";
+import { Auth } from "aws-amplify";
 
 type AppData = {
   user: object | undefined;
@@ -64,6 +78,11 @@ export default Vue.extend({
   },
   beforeDestroy() {
     return onAuthUIStateChange;
+  },
+  methods: {
+    signOut() {
+      Auth.signOut();
+    }
   }
 });
 </script>

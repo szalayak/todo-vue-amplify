@@ -12,9 +12,9 @@ export const createTodo = /* GraphQL */ `
       text
       deadline
       done
+      owner
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -28,9 +28,9 @@ export const updateTodo = /* GraphQL */ `
       text
       deadline
       done
+      owner
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -44,9 +44,9 @@ export const deleteTodo = /* GraphQL */ `
       text
       deadline
       done
+      owner
       createdAt
       updatedAt
-      owner
     }
   }
 `;

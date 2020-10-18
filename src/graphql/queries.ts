@@ -9,9 +9,9 @@ export const getTodo = /* GraphQL */ `
       text
       deadline
       done
+      owner
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -27,9 +27,9 @@ export const listTodos = /* GraphQL */ `
         text
         deadline
         done
+        owner
         createdAt
         updatedAt
-        owner
       }
       nextToken
     }

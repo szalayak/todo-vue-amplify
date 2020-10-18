@@ -1,6 +1,10 @@
-type Todo @model @auth(rules: [{ allow: owner }]) {
-  id: ID!
-  text: String!
-  deadline: AWSDate
-  done: Boolean
+type Todo @model @auth(rules: [ 
+ { allow: owner }, # Admin users can access any operation.
+ { allow: groups, groups: ["Admins"] }
+]) {
+	id: ID!
+	text: String!
+	deadline: AWSDate
+	done: Boolean
+  owner: String
 }
