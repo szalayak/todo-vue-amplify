@@ -1,0 +1,16 @@
+{
+    "todos": "Feladatok",
+    "newTodo": "Új feladat",
+    "open": "Nyitott feladatok",
+    "completed": "Elvégzett feladatok",
+    "text":"Szöveg",
+    "deadline":"Határidő",
+    "actions": "Műveletek",
+    "editTodo":"Feladat Szerkesztése",
+    "cancel":"Mégsem",
+    "save": "Mentés",
+    "ok":"OK",
+    "signOut":"Kijelentkezés",
+    "en": "Angol",
+    "hu": "Magyar"
+  }

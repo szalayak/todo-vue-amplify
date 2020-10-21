@@ -10,12 +10,12 @@
         <thead>
           <tr>
             <th class="text-left" width="40%">
-              Text
+              {{ $t("text") }}
             </th>
             <th class="text-left" width="30%">
-              Deadline
+              {{ $t("deadline") }}
             </th>
-            <th class="text-left" width="30%">Actions</th>
+            <th class="text-left" width="30%">{{ $t("actions") }}</th>
           </tr>
         </thead>
         <tbody>

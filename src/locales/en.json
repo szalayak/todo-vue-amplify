@@ -1,0 +1,16 @@
+{
+  "todos": "Todos",
+  "newTodo": "New Todo",
+  "open": "Open",
+  "completed": "Completed",
+  "text":"Text",
+  "deadline":"Deadline",
+  "actions": "Actions",
+  "editTodo":"Edit Todo",
+  "cancel":"Cancel",
+  "save": "Save",
+  "ok":"OK",
+  "signOut":"Sign Out",
+  "en": "English",
+  "hu": "Hungarian"
+}

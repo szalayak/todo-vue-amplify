@@ -1,7 +1,7 @@
 <template>
   <div>
     <todo-dialog
-      title="New Todo"
+      :title="$t('newTodo')"
       :open="newDialog"
       :item="newItem"
       @closed="onNewItemCancelled"
@@ -11,20 +11,20 @@
       <v-row>
         <v-spacer></v-spacer>
         <v-btn class="mr-2" dark @click="onNewItem"
-          ><v-icon>mdi-plus</v-icon>New Todo</v-btn
+          ><v-icon>mdi-plus</v-icon>{{ $t("newTodo") }}</v-btn
         >
       </v-row>
     </v-toolbar>
     <todo-list
       :items="todos"
-      title="Open"
+      :title="$t('open')"
       @item-deleted="onTodoDeleted"
       @item-completed="onTodoCompleted"
       @item-changed="onItemChanged"
     />
     <todo-list
       :items="doneTodos"
-      title="Completed"
+      :title="$t('completed')"
       @item-deleted="onTodoDeleted"
       @item-uncompleted="onTodoUncompleted"
       @item-changed="onItemChanged"

@@ -11,7 +11,7 @@
             <v-col cols="12" sm="12" md="8" lg="6">
               <v-text-field
                 v-model="editableAttributes.text"
-                label="Text"
+                :label="$t('text')"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="12" md="4" lg="6">
@@ -19,7 +19,7 @@
                 <template v-slot:activator="{ on, attrs }">
                   <v-text-field
                     v-model="formattedDeadline"
-                    label="Deadline"
+                    :label="$t('deadline')"
                     prepend-icon="mdi-calendar"
                     readonly
                     @blur="date = parseDate(editableAttributes.deadline)"
@@ -30,10 +30,10 @@
                 <v-date-picker v-model="date" scrollable>
                   <v-spacer></v-spacer>
                   <v-btn text color="primary" @click="modal = false">
-                    Cancel
+                    {{ $t("cancel") }}
                   </v-btn>
                   <v-btn text color="primary" @click="$refs.dialog.save(date)">
-                    OK
+                    {{ $t("ok") }}
                   </v-btn>
                 </v-date-picker>
               </v-dialog>
@@ -45,10 +45,10 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn color="blue darken-1" text @click="close">
-          Cancel
+          {{ $t("cancel") }}
         </v-btn>
         <v-btn color="blue darken-1" text @click="save">
-          Save
+          {{ $t("save") }}
         </v-btn>
       </v-card-actions>
     </v-card>

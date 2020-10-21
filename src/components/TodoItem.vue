@@ -3,7 +3,7 @@
     <todo-dialog
       :open="dialog"
       :item="item"
-      title="Edit Item"
+      :title="$t('editTodo')"
       @closed="onEditingCancelled"
       @saved="onItemChanged"
     />

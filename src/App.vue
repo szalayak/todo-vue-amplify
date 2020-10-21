@@ -10,7 +10,7 @@
           transition="scale-transition"
           width="40"
         />
-        <div class="text-h4">Todos</div>
+        <div class="text-h4">{{ $t("todos") }}</div>
       </div>
       <v-spacer></v-spacer>
       <v-menu v-if="user">
@@ -22,14 +22,16 @@
         </template>
         <v-list>
           <v-list-item @click="signOut">
-            <v-list-item-title>Sign Out</v-list-item-title>
+            <v-list-item-title>{{ $t("signOut") }}</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="changeLanguage('en')">
+            <v-list-item-title>{{ $t("en") }}</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="changeLanguage('hu')">
+            <v-list-item-title>{{ $t("hu") }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
-      <!-- <div v-if="user" class="text=h6">{{ user.username }}</div>
-      <amplify-sign-out
-        v-if="authState === 'signedin' && user"
-      ></amplify-sign-out> -->
     </v-app-bar>
     <v-main>
       <v-container v-if="authState !== 'signedin'" fluid fill-height>
@@ -82,6 +84,9 @@ export default Vue.extend({
   methods: {
     signOut() {
       Auth.signOut();
+    },
+    changeLanguage(locale: string) {
+      this.$i18n.locale = locale;
     }
   }
 });
